@@ -1,0 +1,4 @@
+24.03.2021 11:03:12 info: info
+24.03.2021 11:03:12 info: info, exception: System.Exception: exception
+24.03.2021 11:03:12 info: info, System.String[]
+24.03.2021 11:03:13 info: info, 

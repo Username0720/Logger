@@ -1,0 +1,10 @@
+24.03.2021 11:03:10 Fatal: fatal
+24.03.2021 11:03:11 Fatal: fatal, exception: System.Exception: exception
+24.03.2021 11:03:12 error: error
+24.03.2021 11:03:12 error: error, exception: System.Exception: exception
+24.03.2021 11:03:12 error exception: System.Exception: exception
+24.03.2021 11:03:12 warning: warning
+24.03.2021 11:03:12 warning: warning, exception: System.Exception: exception
+24.03.2021 11:03:12 debug: debug
+24.03.2021 11:03:12 debug: debug, exception: System.Exception: exception
+24.03.2021 11:03:12 debugformat: debug, System.String[]
