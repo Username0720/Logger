@@ -6,8 +6,6 @@ namespace Test
 {
     class Log : ILog
     {
-        bool is_unique = false;
-        bool is_warning = false;
         string errorpath = $".logs\\{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}\\error.txt";
         string infopath = $".logs\\{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}\\info.txt";
         void ILog.Fatal(string message)
@@ -30,7 +28,6 @@ namespace Test
             {
                 wr.WriteLine($"{DateTime.Now} error: {message}");
             }
-            is_unique = true;
         }
         void ILog.Error(string message, Exception e)
         {
@@ -38,7 +35,6 @@ namespace Test
             {
                 wr.WriteLine($"{DateTime.Now} error: {message}, exception: {e}");
             }
-            is_unique = true;
         }
         void ILog.Error(Exception ex)
         {
@@ -46,11 +42,10 @@ namespace Test
             {
                 wr.WriteLine($"{DateTime.Now} error exception: {ex}");
             }
-            is_unique = true;
         }
         void ILog.ErrorUnique(string message, Exception e)
         {
-            if (!is_unique)
+            if (!errorpath.Contains(e.ToString()))
             {
                 using (StreamWriter wr = new StreamWriter(errorpath, true, Encoding.Default))
                 {
@@ -64,7 +59,6 @@ namespace Test
             {
                 wr.WriteLine($"{DateTime.Now} warning: {message}");
             }
-            is_warning = true;
         }
         void ILog.Warning(string message, Exception e)
         {
@@ -72,11 +66,10 @@ namespace Test
             {
                 wr.WriteLine($"{DateTime.Now} warning: {message}, exception: {e}");
             }
-            is_warning = true;
         }
         void ILog.WarningUnique(string message)
         {
-            if (!is_warning)
+            if (!errorpath.Contains(message))
                 using (StreamWriter wr = new StreamWriter(errorpath, true, Encoding.Default))
                 {
                     wr.WriteLine($"{DateTime.Now} unique warning: {message}");
