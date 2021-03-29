@@ -7,14 +7,6 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            if (!Directory.Exists(@".logs"))
-                Directory.CreateDirectory(@".logs");//Test\Test\bin\Debug\net5.0
-
-            string path = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
-
-            if (!Directory.Exists($".logs\\{path}"))
-                Directory.CreateDirectory($".logs\\{path}");
-
             ILog log = new Log();
             log.Fatal("fatal");
             Exception e = new Exception("exception");
